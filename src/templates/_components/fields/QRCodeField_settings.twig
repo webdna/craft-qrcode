@@ -1,0 +1,28 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * QRCode plugin for Craft CMS
+ *
+ * QRCodeField Field Settings
+ *
+ * @author    Kurious Agency
+ * @copyright Copyright (c) 2019 Kurious Agency
+ * @link      https://kurious.agency
+ * @package   QRCode
+ * @since     0.0.1
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{# {% do view.registerAssetBundle("kuriousagency\\qrcode\\assetbundles\\qrcode\\QRCodeAsset") %} #}
+
+{{ forms.textareaField({
+	label: "Data Format"|t,
+	instructions: ""|t,
+	id: 'data',
+	name: 'data',
+	value: field.data|raw,
+	errors: field.getErrors('data'),
+    rows: 8
+}) }}

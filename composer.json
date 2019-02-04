@@ -1,0 +1,41 @@
+{
+	"name": "kuriousagency/qrcode",
+	"description": "Generate a QR code",
+	"type": "craft-plugin",
+	"version": "0.0.1",
+	"keywords": [
+		"craft",
+		"cms",
+		"craftcms",
+		"craft-plugin",
+		"qrcode"
+	],
+	"support": {
+		"docs": "https://github.com/kuriousagencycraft-qrcode/blob/master/README.md",
+		"issues": "https://github.com/kuriousagencycraft-qrcode/issues"
+	},
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Kurious Agency",
+			"homepage": "https://kurious.agency"
+		}
+	],
+	"require": {
+		"craftcms/cms": "^3.0.0-RC1",
+		"endroid/qr-code": "^3.5"
+	},
+	"autoload": {
+		"psr-4": {
+			"kuriousagency\\qrcode\\": "src/"
+		}
+	},
+	"extra": {
+		"name": "QRCode",
+		"handle": "qrcode",
+		"hasCpSettings": false,
+		"hasCpSection": false,
+		"changelogUrl": "https://raw.githubusercontent.com/kuriousagency/craft-qrcode/master/CHANGELOG.md",
+		"class": "kuriousagency\\qrcode\\QRCode"
+	}
+}

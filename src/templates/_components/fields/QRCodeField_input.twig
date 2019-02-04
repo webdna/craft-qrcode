@@ -1,0 +1,24 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * QRCode plugin for Craft CMS 3.x
+ *
+ * QRCodeField Field Input
+ *
+ * @author    Kurious Agency
+ * @copyright Copyright (c) 2019 Kurious Agency
+ * @link      https://kurious.agency
+ * @package   QRCode
+ * @since     0.0.1
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{{ forms.hidden({
+    id: id,
+    name: name,
+    value: value,
+}) }}
+
+<img src="{{ value|raw }}" />
