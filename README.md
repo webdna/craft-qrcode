@@ -41,7 +41,7 @@ Fieldtype:
 In the fieldtype settings, you can use twig to dynamically get properties of the element that it is set on. eg on a user element:
 
 ```
-	{"name":"{{ user.fullName }}"}
+    {"name":"{{ user.fullName }}"}
 ```
 
 Twig variables:
