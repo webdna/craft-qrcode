@@ -83,7 +83,7 @@ class QRCode extends Plugin
             function (Event $event) {
                 /** @var CraftVariable $variable */
                 $variable = $event->sender;
-                $variable->set('qRCode', QRCodeVariable::class);
+                $variable->set('qrcode', QRCodeVariable::class);
             }
         );
 

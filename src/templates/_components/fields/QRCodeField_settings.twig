@@ -20,9 +20,9 @@
 {{ forms.textareaField({
 	label: "Data Format"|t,
 	instructions: ""|t,
-	id: 'data',
-	name: 'data',
-	value: field.data|raw,
-	errors: field.getErrors('data'),
+	id: 'property',
+	name: 'property',
+	value: field.property ? field.property|raw,
+	errors: field.getErrors('property'),
     rows: 8
 }) }}

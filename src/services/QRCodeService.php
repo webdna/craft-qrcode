@@ -31,7 +31,7 @@ class QRCodeService extends Component
     /*
      * @return mixed
      */
-    public function generateQRCode($data, $size=null)
+    public function generate($data, $size=null)
     {
 		$generator = new QrCode(json_encode($data));
 		if ($size) {
