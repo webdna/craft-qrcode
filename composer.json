@@ -11,8 +11,8 @@
 		"qrcode"
 	],
 	"support": {
-		"docs": "https://github.com/kuriousagencycraft-qrcode/blob/master/README.md",
-		"issues": "https://github.com/kuriousagencycraft-qrcode/issues"
+		"docs": "https://github.com/KuriousAgency/craft-qrcode/blob/master/README.md",
+		"issues": "https://github.com/KuriousAgency/craft-qrcode/issues"
 	},
 	"license": "MIT",
 	"authors": [
