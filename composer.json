@@ -2,7 +2,7 @@
 	"name": "kuriousagency/qrcode",
 	"description": "Generate a QR code",
 	"type": "craft-plugin",
-	"version": "0.0.2",
+	"version": "1.0.0",
 	"keywords": [
 		"craft",
 		"cms",
