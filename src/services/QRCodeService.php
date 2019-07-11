@@ -33,6 +33,10 @@ class QRCodeService extends Component
      */
     public function generate($data, $size=null)
     {
+		if (gettype($data) == 'array') {
+			$data = json_encode($data);
+		}
+		
 		$generator = new QrCode($data);
 		if ($size) {
 			$generator->setSize($size);
