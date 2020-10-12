@@ -80,7 +80,7 @@ class QRCodeField extends Field
 		$type = strtolower(end($type));
 		$data = Craft::$app->getView()->renderString($this->property, [$type=>$element]);
 		$data = preg_replace( "/\r|\n/", "", $data);
-		$value = QRCode::$plugin->service->generateQRCode(json_decode($data));
+		$value = QRCode::$plugin->service->generate(json_decode($data));
 
 		return $value;
     }
