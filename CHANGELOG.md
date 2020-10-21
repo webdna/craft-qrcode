@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.0.5 - 2020-10-21
+
+### Changed
+
+- Removed character limit on content column
+
+## 1.0.4 - 2020-10-12
+
+### Fixed
+
+- Incorrect function name changed.
+
 ## 1.0.3 - 2019-07-11
 
 ### Fixed
