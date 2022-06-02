@@ -2,7 +2,7 @@
 	"name": "kuriousagency/qrcode",
 	"description": "Generate a QR code",
 	"type": "craft-plugin",
-	"version": "1.0.5",
+	"version": "2.0.0",
 	"keywords": [
 		"craft",
 		"cms",
@@ -22,7 +22,7 @@
 		}
 	],
 	"require": {
-		"craftcms/cms": "^3.0.0-RC1",
+		"craftcms/cms": "^4.0",
 		"endroid/qr-code": "^3.5"
 	},
 	"autoload": {
@@ -37,5 +37,12 @@
 		"hasCpSection": false,
 		"changelogUrl": "https://raw.githubusercontent.com/kuriousagency/craft-qrcode/master/CHANGELOG.md",
 		"class": "kuriousagency\\qrcode\\QRCode"
+	},
+	"config": {
+		"allow-plugins": {
+			"yiisoft/yii2-composer": true,
+			"craftcms/plugin-installer": true,
+			"endroid/installer": true
+		}
 	}
 }
