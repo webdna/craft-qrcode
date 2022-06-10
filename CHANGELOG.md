@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.0.6 - 2022-06-10
+
+### Changed
+
+- Change of ownership
+
 ## 1.0.5 - 2020-10-21
 
 ### Changed

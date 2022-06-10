@@ -2,7 +2,7 @@
 	"name": "kuriousagency/qrcode",
 	"description": "Generate a QR code",
 	"type": "craft-plugin",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"keywords": [
 		"craft",
 		"cms",
@@ -11,14 +11,14 @@
 		"qrcode"
 	],
 	"support": {
-		"docs": "https://github.com/KuriousAgency/craft-qrcode/blob/master/README.md",
-		"issues": "https://github.com/KuriousAgency/craft-qrcode/issues"
+		"docs": "https://github.com/webdna/craft-qrcode/blob/master/README.md",
+		"issues": "https://github.com/webdna/craft-qrcode/issues"
 	},
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "Kurious Agency",
-			"homepage": "https://kurious.agency"
+			"name": "WebDNA",
+			"homepage": "https://webdna.co.uk"
 		}
 	],
 	"require": {
