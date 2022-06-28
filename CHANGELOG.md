@@ -10,6 +10,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 - Added Craft 4 support
 
+## 1.0.6 - 2022-06-10
+
+### Changed
+
+- Change of ownership
+
 ## 1.0.5 - 2020-10-21
 
 ### Changed
