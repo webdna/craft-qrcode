@@ -19,7 +19,7 @@ To install the plugin, follow these instructions.
 2.  Then tell Composer to load the plugin:
 
 ```
-    composer require kuriousagency/qrcode
+    composer require webdna/qrcode
 ```
 
 3.  In the Control Panel, go to Settings → Plugins and click the “Install” button for QRCode.
@@ -66,4 +66,4 @@ Some things to do, and ideas for potential features:
 
 -   Release it
 
-Brought to you by [Kurious Agency](https://kurious.agency)
+Brought to you by [webdna](https://webdna.co.uk)

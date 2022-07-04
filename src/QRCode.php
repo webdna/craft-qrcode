@@ -4,16 +4,16 @@
  *
  * Generate a QR code
  *
- * @link      https://kurious.agency
- * @copyright Copyright (c) 2019 Kurious Agency
+ * @link      https://webdna.co.uk
+ * @copyright Copyright (c) 2019 webdna
  */
 
-namespace kuriousagency\qrcode;
+namespace webdna\qrcode;
 
-use kuriousagency\qrcode\services\QRCodeService;
-use kuriousagency\qrcode\variables\QRCodeVariable;
-use kuriousagency\qrcode\twigextensions\QRCodeTwigExtension;
-use kuriousagency\qrcode\fields\QRCodeField as QRCodeFieldField;
+use webdna\qrcode\services\QRCodeService;
+use webdna\qrcode\variables\QRCodeVariable;
+use webdna\qrcode\twigextensions\QRCodeTwigExtension;
+use webdna\qrcode\fields\QRCodeField as QRCodeFieldField;
 
 use Craft;
 use craft\base\Plugin;
@@ -28,7 +28,7 @@ use yii\base\Event;
 /**
  * Class QRCode
  *
- * @author    Kurious Agency
+ * @author    webdna
  * @package   QRCode
  * @since     0.0.1
  *
@@ -62,7 +62,7 @@ class QRCode extends Plugin
     {
         parent::init();
 		self::$plugin = $this;
-		
+
 		$this->setComponents([
 			'service' => QRCodeService::class,
 		]);

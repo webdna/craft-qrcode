@@ -4,13 +4,13 @@
  *
  * Generate a QR code
  *
- * @link      https://kurious.agency
- * @copyright Copyright (c) 2019 Kurious Agency
+ * @link      https://webdna.co.uk
+ * @copyright Copyright (c) 2019 webdna
  */
 
-namespace kuriousagency\qrcode\twigextensions;
+namespace webdna\qrcode\twigextensions;
 
-use kuriousagency\qrcode\QRCode;
+use webdna\qrcode\QRCode;
 
 use Craft;
 use Twig\Extension\AbstractExtension;
@@ -18,7 +18,7 @@ use Twig\TwigFilter;
 use Twig\TwigFunction;
 
 /**
- * @author    Kurious Agency
+ * @author    webdna
  * @package   QRCode
  * @since     0.0.1
  */
@@ -30,7 +30,7 @@ class QRCodeTwigExtension extends AbstractExtension
     /**
      * @inheritdoc
      */
-    public function getName()
+    public function getName(): string
     {
         return 'QRCode';
     }
@@ -38,7 +38,7 @@ class QRCodeTwigExtension extends AbstractExtension
     /**
      * @inheritdoc
      */
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             new TwigFilter('qrcode', [$this, 'generate']),
@@ -48,7 +48,7 @@ class QRCodeTwigExtension extends AbstractExtension
     /**
      * @inheritdoc
      */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('qrcode', [$this, 'generate']),
@@ -60,7 +60,7 @@ class QRCodeTwigExtension extends AbstractExtension
      *
      * @return string
      */
-    public function generate($data, $size=null)
+    public function generate($data, $size=null): string
     {
         return QRCode::$plugin->service->generate($data, $size);
     }

@@ -4,18 +4,18 @@
  *
  * Generate a QR code
  *
- * @link      https://kurious.agency
- * @copyright Copyright (c) 2019 Kurious Agency
+ * @link      https://webdna.co.uk
+ * @copyright Copyright (c) 2019 webdna
  */
 
-namespace kuriousagency\qrcode\assetbundles\qrcodefieldfield;
+namespace webdna\qrcode\assetbundles\qrcodefieldfield;
 
 use Craft;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
 
 /**
- * @author    Kurious Agency
+ * @author    webdna
  * @package   QRCode
  * @since     0.0.1
  */
@@ -29,7 +29,7 @@ class QRCodeFieldFieldAsset extends AssetBundle
      */
     public function init()
     {
-        $this->sourcePath = "@kuriousagency/qrcode/assetbundles/qrcodefieldfield/dist";
+        $this->sourcePath = "@webdna/qrcode/assetbundles/qrcodefieldfield/dist";
 
         $this->depends = [
             CpAsset::class,

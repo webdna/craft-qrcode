@@ -4,14 +4,14 @@
  *
  * Generate a QR code
  *
- * @link      https://kurious.agency
- * @copyright Copyright (c) 2019 Kurious Agency
+ * @link      https://webdna.co.uk
+ * @copyright Copyright (c) 2019 webdna
  */
 
-namespace kuriousagency\qrcode\fields;
+namespace webdna\qrcode\fields;
 
-use kuriousagency\qrcode\QRCode;
-// use kuriousagency\qrcode\assetbundles\qrcodefieldfield\QRCodeFieldFieldAsset;
+use webdna\qrcode\QRCode;
+// use webdna\qrcode\assetbundles\qrcodefieldfield\QRCodeFieldFieldAsset;
 
 use Craft;
 use craft\base\ElementInterface;
@@ -22,7 +22,7 @@ use craft\helpers\Json;
 use craft\helpers\Template;
 
 /**
- * @author    Kurious Agency
+ * @author    webdna
  * @package   QRCode
  * @since     0.0.1
  */
