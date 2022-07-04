@@ -1,6 +1,6 @@
 <?php
 /**
- * QRCode plugin for Craft CMS 3.x
+ * QRCode plugin for Craft CMS 4.x
  *
  * Generate a QR code
  *

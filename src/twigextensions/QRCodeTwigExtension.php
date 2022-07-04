@@ -1,6 +1,6 @@
 <?php
 /**
- * QRCode plugin for Craft CMS 3.x
+ * QRCode plugin for Craft CMS 4.x
  *
  * Generate a QR code
  *
@@ -13,13 +13,16 @@ namespace kuriousagency\qrcode\twigextensions;
 use kuriousagency\qrcode\QRCode;
 
 use Craft;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
+use Twig\TwigFunction;
 
 /**
  * @author    Kurious Agency
  * @package   QRCode
  * @since     0.0.1
  */
-class QRCodeTwigExtension extends \Twig_Extension
+class QRCodeTwigExtension extends AbstractExtension
 {
     // Public Methods
     // =========================================================================
@@ -38,7 +41,7 @@ class QRCodeTwigExtension extends \Twig_Extension
     public function getFilters()
     {
         return [
-            new \Twig_SimpleFilter('qrcode', [$this, 'generate']),
+            new TwigFilter('qrcode', [$this, 'generate']),
         ];
     }
 
@@ -48,7 +51,7 @@ class QRCodeTwigExtension extends \Twig_Extension
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('qrcode', [$this, 'generate']),
+            new TwigFunction('qrcode', [$this, 'generate']),
         ];
     }
 
