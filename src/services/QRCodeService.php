@@ -31,9 +31,11 @@ class QRCodeService extends Component
     // =========================================================================
 
     /*
-     * @return mixed
+     * @param mixed $data
+     * @param ?int $size
+     * @return Markup
      */
-    public function generate($data, $size=null): Markup
+    public function generate(mixed $data, ?int $size = null): Markup
     {
         if (gettype($data) == 'array') {
             $data = json_encode($data);

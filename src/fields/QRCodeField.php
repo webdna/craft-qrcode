@@ -34,7 +34,7 @@ class QRCodeField extends Field
     /**
      * @var string
      */
-    public $property;
+    public string $property;
 
     // Static Methods
     // =========================================================================

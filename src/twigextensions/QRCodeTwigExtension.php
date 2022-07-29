@@ -56,11 +56,11 @@ class QRCodeTwigExtension extends AbstractExtension
     }
 
     /**
-     * @param null $text
-     *
+     * @param mixed $data
+     * @param ?int $size
      * @return string
      */
-    public function generate($data, $size=null): string
+    public function generate(mixed $data, ?int $size = null): string
     {
         return QRCode::$plugin->service->generate($data, $size);
     }

@@ -27,7 +27,7 @@ class QRCodeFieldFieldAsset extends AssetBundle
     /**
      * @inheritdoc
      */
-    public function init()
+    public function init(): void
     {
         $this->sourcePath = "@webdna/qrcode/assetbundles/qrcodefieldfield/dist";
 

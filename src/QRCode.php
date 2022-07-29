@@ -42,7 +42,7 @@ class QRCode extends Plugin
     /**
      * @var QRCode
      */
-    public static $plugin;
+    public static Plugin $plugin;
 
     // Public Properties
     // =========================================================================
@@ -58,7 +58,7 @@ class QRCode extends Plugin
     /**
      * @inheritdoc
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
 		self::$plugin = $this;
