@@ -2,7 +2,7 @@
 	"name": "webdna/qrcode",
 	"description": "Generate a QR code",
 	"type": "craft-plugin",
-	"version": "2.0.1",
+	"version": "2.1.0",
 	"keywords": [
 		"craft",
 		"cms",
@@ -23,7 +23,7 @@
 	],
 	"require": {
 		"craftcms/cms": "^4.0",
-		"endroid/qr-code": "^3.5",
+		"endroid/qr-code": "^4.0",
 		"php": "^8.0.2|^9.0"
 	},
 	"autoload": {

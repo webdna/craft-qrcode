@@ -12,7 +12,15 @@ namespace webdna\qrcode\services;
 
 use webdna\qrcode\QRCode as Plugin;
 
+use Endroid\QrCode\Color\Color;
+use Endroid\QrCode\Encoding\Encoding;
+use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelLow;
 use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Label\Label;
+use Endroid\QrCode\Logo\Logo;
+use Endroid\QrCode\RoundBlockSizeMode\RoundBlockSizeModeMargin;
+use Endroid\QrCode\Writer\PngWriter;
+use Endroid\QrCode\Writer\ValidationException;
 
 use Twig\Markup;
 
@@ -35,17 +43,24 @@ class QRCodeService extends Component
      * @param ?int $size
      * @return Markup
      */
-    public function generate(mixed $data, ?int $size = null): Markup
+    public function generate(mixed $data, ?int $size = 300): Markup
     {
         if (gettype($data) == 'array') {
             $data = json_encode($data);
         }
+        
+        $writer = new PngWriter();
+        
+        $qrCode = QrCode::create($data)
+            ->setEncoding(new Encoding('UTF-8'))
+            ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
+            ->setSize($size)
+            ->setRoundBlockSizeMode(new RoundBlockSizeModeMargin())
+            ->setForegroundColor(new Color(0, 0, 0))
+            ->setBackgroundColor(new Color(255, 255, 255, 100));
 
-        $generator = new QrCode($data);
-        if ($size) {
-            $generator->setSize($size);
-        }
+        $result = $writer->write($qrCode);
 
-        return Template::raw($generator->writeDataUri());
+        return Template::raw($result->getDataUri());
     }
 }

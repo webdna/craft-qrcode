@@ -60,10 +60,6 @@ Twig Filters:
     {{ {"name":"John Smith"}|qrcode(100) }}
 ```
 
-## QRCode Roadmap
 
-Some things to do, and ideas for potential features:
-
--   Release it
 
 Brought to you by [webdna](https://webdna.co.uk)
