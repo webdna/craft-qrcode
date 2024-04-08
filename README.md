@@ -71,6 +71,7 @@ Brought to you by [webdna](https://webdna.co.uk)
 
 ## Craft 5 version installation from fork
 
+This is a fork of the original plugin. This fork is for Craft 5.x. To install, follow these instructions. These may be removed if the original plugin is updated for Craft 5.x.
 
 ```
 {
