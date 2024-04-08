@@ -50,6 +50,14 @@ class QRCodeField extends Field
         return Craft::t('qrcode', 'QR Code');
     }
 
+     /**
+     * @inheritdoc
+     */
+    public static function icon(): string
+    {
+        return __DIR__ . '/../assetbundles/qrcodefieldfield/dist/img/qrcode-fieldtype-icon.svg';
+    }
+
     // Public Methods
     // =========================================================================
 
@@ -59,11 +67,10 @@ class QRCodeField extends Field
     public function rules(): array
     {
         $rules = parent::rules();
-        $rules = array_merge($rules, [
+        return array_merge($rules, [
             ['property', 'string'],
             ['property', 'required'],
         ]);
-        return $rules;
     }
 
     /**
