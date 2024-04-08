@@ -10,7 +10,10 @@
 
 namespace webdna\qrcode\fields;
 
+use Twig\Error\LoaderError;
+use Twig\Error\SyntaxError;
 use webdna\qrcode\QRCode;
+
 // use webdna\qrcode\assetbundles\qrcodefieldfield\QRCodeFieldFieldAsset;
 
 use Craft;
@@ -34,7 +37,7 @@ class QRCodeField extends Field
     /**
      * @var string
      */
-    public string $property;
+    public string $property = '';
 
     // Static Methods
     // =========================================================================
@@ -58,7 +61,7 @@ class QRCodeField extends Field
         $rules = parent::rules();
         $rules = array_merge($rules, [
             ['property', 'string'],
-			['property', 'required'],
+            ['property', 'required'],
         ]);
         return $rules;
     }
@@ -76,13 +79,15 @@ class QRCodeField extends Field
      */
     public function normalizeValue(mixed $value, ?ElementInterface $element = null): mixed
     {
-		$type = explode('\\',get_class($element));
-		$type = strtolower(end($type));
-		$data = Craft::$app->getView()->renderString($this->property, [$type=>$element]);
-		$data = preg_replace( "/\r|\n/", "", $data);
-		$value = QRCode::$plugin->service->generate(json_decode($data));
-
-		return $value;
+        $type = explode('\\', get_class($element));
+        $type = strtolower(end($type));
+        try {
+            $data = Craft::$app->getView()->renderString($this->property, [$type => $element]);
+        } catch (LoaderError|SyntaxError $e) {
+            Craft::$app->getErrorHandler()->logException($e);
+        }
+        $data = preg_replace("/\r|\n/", "", $data);
+        return QRCode::$plugin->service->generate($this->_decodeOrReturn($data));
     }
 
     /**
@@ -105,7 +110,7 @@ class QRCodeField extends Field
                 'field' => $this,
             ]
         );
-	}
+    }
 
     /**
      * @inheritdoc
@@ -113,10 +118,10 @@ class QRCodeField extends Field
     public function getInputHtml(mixed $value, ?ElementInterface $element = null): string
     {
         // Register our asset bundle
-		// Craft::$app->getView()->registerAssetBundle(QRCodeFieldFieldAsset::class);
-		//if (!$value) {
-		//	$value = $this->_getValue($element);
-		//}
+        // Craft::$app->getView()->registerAssetBundle(QRCodeFieldFieldAsset::class);
+        //if (!$value) {
+        //	$value = $this->_getValue($element);
+        //}
 
         // Get our id and namespace
         $id = Craft::$app->getView()->formatInputId($this->handle);
@@ -128,7 +133,7 @@ class QRCodeField extends Field
             'name' => $this->handle,
             'namespace' => $namespacedId,
             'prefix' => Craft::$app->getView()->namespaceInputId(''),
-            ];
+        ];
         $jsonVars = Json::encode($jsonVars);
         // Craft::$app->getView()->registerJs("$('#{$namespacedId}-field').QRCodeQRCodeField(" . $jsonVars . ");");
 
@@ -143,5 +148,11 @@ class QRCodeField extends Field
                 'namespacedId' => $namespacedId,
             ]
         );
+    }
+
+    private function _decodeOrReturn(mixed $input)
+    {
+        $decoded = json_decode($input, true);
+        return $decoded ?? $input;
     }
 }

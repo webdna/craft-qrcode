@@ -10,6 +10,8 @@
 
 namespace webdna\qrcode\services;
 
+use Endroid\QrCode\ErrorCorrectionLevel;
+use Endroid\QrCode\RoundBlockSizeMode;
 use webdna\qrcode\QRCode as Plugin;
 
 use Endroid\QrCode\Color\Color;
@@ -43,19 +45,24 @@ class QRCodeService extends Component
      * @param ?int $size
      * @return Markup
      */
+    /**
+     * @throws \JsonException
+     */
     public function generate(mixed $data, ?int $size = 300): Markup
     {
-        if (gettype($data) == 'array') {
-            $data = json_encode($data);
+//        dd($data);
+
+        if (is_array($data)) {
+            $data = json_encode($data, JSON_THROW_ON_ERROR);
         }
-        
+
         $writer = new PngWriter();
         
         $qrCode = QrCode::create($data)
             ->setEncoding(new Encoding('UTF-8'))
-            ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
+            ->setErrorCorrectionLevel(ErrorCorrectionLevel::Low)
             ->setSize($size)
-            ->setRoundBlockSizeMode(new RoundBlockSizeModeMargin())
+            ->setRoundBlockSizeMode(RoundBlockSizeMode::Margin)
             ->setForegroundColor(new Color(0, 0, 0))
             ->setBackgroundColor(new Color(255, 255, 255, 100));
 
