@@ -50,7 +50,10 @@ class QRCodeService extends Component
      */
     public function generate(mixed $data, ?int $size = 300): Markup
     {
-//        dd($data);
+        // set default size
+        if ($size === null) {
+            $size = 300;
+        }
 
         if (is_array($data)) {
             $data = json_encode($data, JSON_THROW_ON_ERROR);
