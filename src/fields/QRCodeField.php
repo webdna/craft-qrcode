@@ -79,16 +79,27 @@ class QRCodeField extends Field
      */
     public function normalizeValue(mixed $value, ?ElementInterface $element = null): mixed
     {
-        $type = explode('\\', get_class($element));
-        $type = strtolower(end($type));
+        // Check if $element is null before calling get_class()
+        $type = '';
+        if ($element !== null) {
+            $typeParts = explode('\\', get_class($element));
+            $type = strtolower(end($typeParts));
+        }
+        // Proceed with your logic.
+        $data = '';
         try {
             $data = Craft::$app->getView()->renderString($this->property, [$type => $element]);
         } catch (LoaderError|SyntaxError $e) {
             Craft::$app->getErrorHandler()->logException($e);
         }
+
+        // Remove line breaks from $data
         $data = preg_replace("/\r|\n/", "", $data);
+
+        // Continue with your logic, possibly handling cases where $element is null
         return QRCode::$plugin->service->generate($this->_decodeOrReturn($data));
     }
+
 
     /**
      * @inheritdoc
@@ -117,11 +128,6 @@ class QRCodeField extends Field
      */
     public function getInputHtml(mixed $value, ?ElementInterface $element = null): string
     {
-        // Register our asset bundle
-        // Craft::$app->getView()->registerAssetBundle(QRCodeFieldFieldAsset::class);
-        //if (!$value) {
-        //	$value = $this->_getValue($element);
-        //}
 
         // Get our id and namespace
         $id = Craft::$app->getView()->formatInputId($this->handle);
@@ -150,9 +156,21 @@ class QRCodeField extends Field
         );
     }
 
+    /*
+     * @param mixed $input
+     * @return mixed
+     */
     private function _decodeOrReturn(mixed $input)
     {
+        if (!is_string($input)) {
+            return $input;
+        }
+
         $decoded = json_decode($input, true);
-        return $decoded ?? $input;
+        if (json_last_error() === JSON_ERROR_NONE) {
+            return $decoded;
+        }
+
+        return $input;
     }
 }
