@@ -1,9 +1,5 @@
 # QRCode plugin for Craft CMS 5.x
 
-> Note: This is a fork of the original plugin for Craft 3.x. This fork is for Craft 5.x.
-> To install, see the [instructions below](#craft-5-version-installation-from-fork) for the Craft 5 version installation from fork.
-
-
 Generate a QR code
 
 ## Requirements
@@ -67,24 +63,3 @@ Twig Filters:
 
 
 Brought to you by [webdna](https://webdna.co.uk)
-
-
-## Craft 5 version installation from fork
-
-This is a fork of the original plugin. This fork is for Craft 5.x. To install, follow these instructions. These may be removed if the original plugin is updated for Craft 5.x.
-
-```
-{
-    "repositories": [
-        ... other repos ...
-        {
-            "type": "vcs",
-            "url": "https://github.com/johnfmorton/craft-qrcode"
-        }
-    ]
-}
-```
-
-```
-composer require webdna/qrcode:dev-craft-5
-```
