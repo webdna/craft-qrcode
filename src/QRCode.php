@@ -61,18 +61,18 @@ class QRCode extends Plugin
     public function init(): void
     {
         parent::init();
-		self::$plugin = $this;
+        self::$plugin = $this;
 
-		$this->setComponents([
-			'service' => QRCodeService::class,
-		]);
+        $this->setComponents([
+            'service' => QRCodeService::class,
+        ]);
 
         Craft::$app->view->registerTwigExtension(new QRCodeTwigExtension());
 
         Event::on(
             Fields::class,
             Fields::EVENT_REGISTER_FIELD_TYPES,
-            function (RegisterComponentTypesEvent $event) {
+            static function(RegisterComponentTypesEvent $event) {
                 $event->types[] = QRCodeFieldField::class;
             }
         );
@@ -80,7 +80,7 @@ class QRCode extends Plugin
         Event::on(
             CraftVariable::class,
             CraftVariable::EVENT_INIT,
-            function (Event $event) {
+            static function(Event $event) {
                 /** @var CraftVariable $variable */
                 $variable = $event->sender;
                 $variable->set('qrcode', QRCodeVariable::class);
@@ -90,7 +90,7 @@ class QRCode extends Plugin
         Event::on(
             Plugins::class,
             Plugins::EVENT_AFTER_INSTALL_PLUGIN,
-            function (PluginEvent $event) {
+            function(PluginEvent $event) {
                 if ($event->plugin === $this) {
                 }
             }

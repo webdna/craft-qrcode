@@ -1,10 +1,10 @@
-# QRCode plugin for Craft CMS 4.x
+# QRCode plugin for Craft CMS 5.x
 
 Generate a QR code
 
 ## Requirements
 
-This plugin requires Craft CMS 4.0 or later.
+This plugin requires Craft CMS 5.0 or later.
 
 ## Installation
 

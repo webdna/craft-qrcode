@@ -19,10 +19,12 @@
 
 {{ forms.textareaField({
 	label: "Data Format"|t,
-	instructions: ""|t,
+	instructions: "Define the format of the a QR code to be shown in the control panel. Use Twig to dynamically retrieve properties of the element that the fieldtype is set on. It may be a simple string, i.e. `{{ entry.title }}`, or a full JSON string, i.e., `{ \"title\" : \"{{ entry.title }}\" }`."|t,
 	id: 'property',
 	name: 'property',
+	class: 'code',
+	required: true,
 	value: field.property ? field.property|raw,
 	errors: field.getErrors('property'),
-    rows: 8
+    rows: 6
 }) }}
