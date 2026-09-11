@@ -16,13 +16,8 @@ use webdna\qrcode\QRCode as Plugin;
 
 use Endroid\QrCode\Color\Color;
 use Endroid\QrCode\Encoding\Encoding;
-use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelLow;
 use Endroid\QrCode\QrCode;
-use Endroid\QrCode\Label\Label;
-use Endroid\QrCode\Logo\Logo;
-use Endroid\QrCode\RoundBlockSizeMode\RoundBlockSizeModeMargin;
 use Endroid\QrCode\Writer\PngWriter;
-use Endroid\QrCode\Writer\ValidationException;
 
 use Twig\Markup;
 
@@ -61,13 +56,18 @@ class QRCodeService extends Component
 
         $writer = new PngWriter();
         
-        $qrCode = QrCode::create($data)
-            ->setEncoding(new Encoding('UTF-8'))
-            ->setErrorCorrectionLevel(ErrorCorrectionLevel::Low)
-            ->setSize($size)
-            ->setRoundBlockSizeMode(RoundBlockSizeMode::Margin)
-            ->setForegroundColor(new Color(0, 0, 0))
-            ->setBackgroundColor(new Color(255, 255, 255, 100));
+        // Use the constructor rather than the static create()/setter chain:
+        // the setters were deprecated in endroid/qr-code 5.x and removed in 6.0,
+        // while the constructor signature is identical across both majors.
+        $qrCode = new QrCode(
+            data: $data,
+            encoding: new Encoding('UTF-8'),
+            errorCorrectionLevel: ErrorCorrectionLevel::Low,
+            size: $size,
+            roundBlockSizeMode: RoundBlockSizeMode::Margin,
+            foregroundColor: new Color(0, 0, 0),
+            backgroundColor: new Color(255, 255, 255, 100),
+        );
 
         $result = $writer->write($qrCode);
 

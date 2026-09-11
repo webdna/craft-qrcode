@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+### Fixed
+- Fixed `Call to undefined method Endroid\QrCode\QrCode::create()` when `endroid/qr-code` 6.x is installed. The service now uses the `QrCode` constructor, which is identical in 5.x and 6.x, instead of the static `create()`/setter chain that 6.0 removed. ([#15](https://github.com/webdna/craft-qrcode/issues/15))
+
 ## 5.0.1 - 2026-09-08
 ### Updated
 - Updated `endroid/qr-code` to allow v6 or v5
